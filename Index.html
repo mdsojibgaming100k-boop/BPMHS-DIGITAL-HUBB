@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPMHS HUB - Official App</title>
+    <style>
+        :root { --green: #00ff41; --bg: #0d1117; --card: #161b22; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg); color: white; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        header { padding: 40px 0; }
+        h1 { font-size: 2.8em; color: var(--green); text-shadow: 0 0 15px var(--green); margin: 0; }
+        .tagline { color: #8b949e; margin-top: 10px; font-size: 1.1em; }
+        
+        .download-box { 
+            background: var(--card); padding: 35px; border-radius: 25px; 
+            border: 1px solid #30363d; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        .counter { font-size: 1.6em; color: var(--green); margin-bottom: 20px; font-weight: bold; }
+        .btn { 
+            background: var(--green); color: black; padding: 18px 50px; 
+            border-radius: 50px; text-decoration: none; font-weight: bold; 
+            font-size: 1.3em; display: inline-block; transition: 0.3s;
+        }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 0 30px var(--green); }
+
+        .section-title { margin-top: 60px; color: var(--green); font-size: 1.8em; border-bottom: 2px solid #30363d; display: inline-block; padding-bottom: 5px; }
+        
+        /* Screenshots */
+        .screenshots { display: flex; overflow-x: auto; gap: 15px; padding: 25px 0; scrollbar-width: thin; }
+        .screenshots img { height: 420px; border-radius: 15px; border: 2px solid #30363d; cursor: pointer; transition: 0.3s; }
+        .screenshots img:hover { border-color: var(--green); transform: scale(1.02); }
+
+        /* Lightbox */
+        #lightbox {
+            display: none; position: fixed; z-index: 999; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+            justify-content: center; align-items: center;
+        }
+        #lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; border: 2px solid var(--green); }
+        
+        .close-btn {
+            position: absolute; top: 20px; right: 20px;
+            background: var(--green); color: black; font-size: 25px;
+            font-weight: bold; width: 45px; height: 45px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; border: none; box-shadow: 0 0 15px var(--green);
+        }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+        .f-card { background: var(--card); padding: 25px; border-radius: 18px; border: 1px solid #30363d; text-align: left; transition: 0.3s; }
+        .f-card:hover { border-color: var(--green); background: #1c2128; }
+        .f-card h3 { color: var(--green); margin-top: 0; font-size: 1.3em; }
+        .f-card p { color: #c9d1d9; font-size: 0.95em; line-height: 1.6; }
+        .hashtag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .tag { background: rgba(0, 255, 65, 0.1); color: var(--green); padding: 4px 10px; border-radius: 5px; font-size: 0.85em; border: 1px solid rgba(0, 255, 65, 0.3); }
+
+        footer { 
+            margin-top: 70px; padding: 40px; border-top: 1px solid #30363d; 
+            color: #8b949e; line-height: 1.8; 
+        }
+        .dev-info { color: var(--green); font-weight: bold; font-size: 1.1em; }
+        .school-info { font-weight: bold; color: white; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>BPMHS HUB</h1>
+        <p class="tagline">বালিয়া কান্দি পাইলট মডেল হাই স্কুলের ডিজিটাল বিপ্লব</p>
+    </header>
+
+    <div class="download-box">
+        <div class="counter">🚀 লাইভ ডাউনলোড কাউন্টার: <span id="count">লোড হচ্ছে...</span></div>
+        <a href="https://www.mediafire.com/file/vfacm9t2nk2yzlb/BPMHS+(3).apk/file" id="downloadBtn" class="btn" target="_blank">Download APK (Official)</a>
+        <p style="color: #8b949e; margin-top: 15px;">Version 1.0 • Safe & Secure • 2026</p>
+    </div>
+
+    <h3 class="section-title">অ্যাপের বিশেষ সুবিধাসমূহ</h3>
+    <div class="features">
+        <div class="f-card">
+            <h3>🔔 স্মার্ট নোটিশ বোর্ড</h3>
+            <p>স্কুলের যেকোনো নোটিশ বা ছুটির খবর সরাসরি ফোনে পাবে। আর কাগজের নোটিশের জন্য অপেক্ষা করতে হবে না।</p>
+        </div>
+        <div class="f-card">
+            <h3>📅 ক্লাস ও এক্সাম রুটিন</h3>
+            <p>প্রতিদিনের ক্লাসের রুটিন এবং পরীক্ষার সময়সূচী সবসময় পকেটে থাকবে।</p>
+        </div>
+        <div class="f-card">
+            <h3>#️⃣ Hashtag Generator</h3>
+            <p>সোশ্যাল মিডিয়ায় পোস্ট ভাইরাল করার জন্য ট্রেন্ডিং হ্যাসট্যাগ তৈরি করো এক ক্লিকেই। এর উপকারিতা:</p>
+            <div class="hashtag-list">
+                <span class="tag">#পোস্ট_রিচ_বৃদ্ধি</span>
+                <span class="tag">#ভাইরাল_ট্যাগ</span>
+                <span class="tag">#সময়_সাশ্রয়</span>
+                <span class="tag">#স্মার্ট_ক্যাপশন</span>
+            </div>
+        </div>
+        <div class="f-card">
+            <h3>💬 কমিউনিটি চ্যাট</h3>
+            <p>ক্লাসের বন্ধুদের সাথে পড়াশোনা বা প্রজেক্ট নিয়ে আলোচনা করার জন্য আছে আলাদা চ্যাট সেকশন।</p>
+        </div>
+        <div class="f-card">
+            <h3>📊 লাইভ কাউন্টার</h3>
+            <p>আমাদের অ্যাপটি কতজন ব্যবহার করছে, তার লাইভ আপডেট এই কাউন্টারে সরাসরি দেখা যাবে।</p>
+        </div>
+    </div>
+
+    <h3 class="section-title">অ্যাপ প্রিভিউ (ছবিতে ক্লিক করো)</h3>
+    <div class="screenshots">
+        <img src="https://i.supaimg.com/f7d2fa80-8141-47d0-9af1-824505174b7f/f9a070c5-4355-46fb-8ad6-125183668aec.jpg" onclick="openFullPic(this.src)" alt="Preview 1">
+        <img src="https://i.supaimg.com/f7d2fa80-8141-47d0-9af1-824505174b7f/ad62b788-3e33-4bb0-ab92-a5542cfd1a99.jpg" onclick="openFullPic(this.src)" alt="Preview 2">
+        <img src="https://i.supaimg.com/f7d2fa80-8141-47d0-9af1-824505174b7f/0bbc529d-7d81-4365-ab32-1e9b604f807d.jpg" onclick="openFullPic(this.src)" alt="Preview 3">
+        <img src="https://i.supaimg.com/f7d2fa80-8141-47d0-9af1-824505174b7f/02a142d2-1821-4046-873b-0ea48a34dc62.jpg" onclick="openFullPic(this.src)" alt="Preview 4">
+        <img src="https://i.supaimg.com/f7d2fa80-8141-47d0-9af1-824505174b7f/e9a1d511-ef55-4f69-941d-d1b03cd3f038.jpg" onclick="openFullPic(this.src)" alt="Preview 5">
+    </div>
+
+    <div id="lightbox">
+        <button class="close-btn" onclick="closeFullPic()">&times;</button>
+        <img id="fullImg">
+    </div>
+
+    <footer>
+        <div class="dev-info">Developed by SOJIB © 2026</div>
+        CLASS: 09 | SUBJECT: ARTS | ROLL: 01 <br>
+        <div class="school-info">BALIAKANDI PILOT MODEL HIGH SCHOOL'S DIGITAL PROJECT</div>
+    </footer>
+</div>
+
+<script>
+    const firebaseUrl = "https://bpmhs-7457d-default-rtdb.firebaseio.com/download_count.json";
+    const countDisplay = document.getElementById('count');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    function fetchCount() {
+        fetch(firebaseUrl)
+            .then(res => res.json())
+            .then(data => {
+                countDisplay.innerText = data !== null ? data : 0;
+            });
+    }
+
+    downloadBtn.addEventListener('click', () => {
+        fetch(firebaseUrl)
+            .then(res => res.json())
+            .then(current => {
+                const next = (Number(current) || 0) + 1;
+                fetch(firebaseUrl, { method: 'PUT', body: JSON.stringify(next) })
+                .then(() => { countDisplay.innerText = next; });
+            });
+    });
+
+    function openFullPic(src) {
+        document.getElementById('fullImg').src = src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeFullPic() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('lightbox')) {
+            closeFullPic();
+        }
+    }
+
+    fetchCount();
+</script>
+
+</body>
+</html>
